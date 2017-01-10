@@ -1,7 +1,7 @@
 'use strict';
 
 //global
-var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total: '];
 
 //store information stored as an object
 var firstAndPike = {
@@ -10,17 +10,27 @@ var firstAndPike = {
   avgCookies: 6.3,
   location: [],
   customers: function() {   //average number of customers per hour
-    var people = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
+    var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
     console.log(people);
     return people;
   },
+
   cookiesPerHour: function() {    //amount of cookies sold per hour
-    for(var i = 0; i < hours.length; i ++){
-      var amount = Math.floor(this.customers() * this.avgCookies);
+    for(var i = 0; i < hours.length - 1; i ++){
+      var amount = Math.round(this.customers() * this.avgCookies);
       console.log(amount);
       this.location.push(amount);
     }
     return this.location;
+  },
+
+  amount: function() {    //print the total cookies sold for the day **NOT WORKING**
+    var sum = 0;
+    for(var j = 0; j < this.location.length - 1; j ++){
+      sum += this.location[j];
+    }
+    this.location.push(sum);
+    console.log(sum);
   },
 
   print: function() {   //print the list of cookies sold per hour
@@ -33,20 +43,8 @@ var firstAndPike = {
       businessList.appendChild(listEl);
     }
   },
-
-  amount: function() {    //print the total cookies sold for the day **NOT WORKING**
-    this.print();
-    var sum = 0;
-    for(var i = 0; i < this.location.length; i ++){
-      sum += this.location[i];
-      return sum;
-    }
-    var totalOne = document.getElementById('total-one');
-    var totalEl = document.createElement('p');
-    totalEl.textContent = 'Total: ' + sum;
-    totalOne.appendChild(totalEl);
-  }
 };
+
 firstAndPike.amount();
 
 //store information stored as an object
