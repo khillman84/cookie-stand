@@ -9,33 +9,28 @@ var firstAndPike = {
   maxHourlyCust: 65,
   avgCookies: 6.3,
   location: [],
-  customers: function() {   //average number of customers per hour
-    var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-    console.log(people);
-    return people;
-  },
-
   cookiesPerHour: function() {    //amount of cookies sold per hour
     for(var i = 0; i < hours.length - 1; i ++){
-      var amount = Math.round(this.customers() * this.avgCookies);
+      var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
+      console.log(people);
+      var amount = Math.round(people * this.avgCookies);
       console.log(amount);
       this.location.push(amount);
     }
     return this.location;
   },
-
-  amount: function() {    //print the total cookies sold for the day **NOT WORKING**
+  amount: function() {    //print the total cookies sold for the day
     var sum = 0;
-    for(var j = 0; j < this.location.length - 1; j ++){
+    for(var j = 0; j < this.location.length; j ++){
       sum += this.location[j];
     }
     this.location.push(sum);
     console.log(sum);
   },
-
   print: function() {   //print the list of cookies sold per hour
     var businessList = document.getElementById('pike');
     this.cookiesPerHour();
+    this.amount();
     console.log(this.location);
     for(var i = 0; i < this.location.length; i ++) {
       var listEl = document.createElement('li');
@@ -45,7 +40,7 @@ var firstAndPike = {
   },
 };
 
-firstAndPike.amount();
+firstAndPike.print();
 
 //store information stored as an object
 var seatac = {
