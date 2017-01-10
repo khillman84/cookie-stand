@@ -1,34 +1,37 @@
 'use strict';
 
-//List of current store locations stored as objects
-var store1 = {
-  name: '1st and Pike',
-  address: '1234 1st Ave SE Seattle WA 98121',
-  phone: '(206) 867-5309',
-};
+//global variables
+var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
 
-var store2 = {
-  name: 'Seatac Airport',
-  address: '1708 International Blvd Seattle WA 98158',
-  phone: '(206) 867-5308',
-};
+//store information stored as an object
+var firstAndPike = {
+  minHourlyCust: 23,
+  maxHourlyCust: 65,
+  avgCookies: 6.3,
+  location: [],
+  customers: function() {   //average number of customers per hour
+    var people = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
+    console.log(people);
+    return people;
+  },
+  cookiesPerHour: function() {    //amount of cookies sold per hour
+    for(var i = 0; i < hours.length; i ++){
+      var amount = Math.floor(this.customers() * this.avgCookies);
+      console.log(amount);
+      this.location.push(amount);
+    }
+    return this.location;
+  },
 
-var store3 = {
-  name: 'Seattle Center',
-  address: '305 Harrison St Seattle WA 98109',
-  phone: '(206) 867-5307',
+  print: function() {   //print to sales.html
+    var businessList = document.getElementById('pike');
+    this.cookiesPerHour();
+    console.log(this.location);
+    for(var i = 0; i < this.location.length; i ++) {
+      var listEl = document.createElement('li');
+      listEl.textContent = hours[i] + this.location[i];
+      businessList.appendChild(listEl);
+    }
+  }
 };
-
-var store4 = {
-  name: 'Capital Hill',
-  address: '210 E Pike St Seattle WA 98102',
-  phone: '(206) 867-5306',
-};
-
-var store5 = {
-  name: 'Alki',
-  address: '1702 Alki Ave SW Seattle WA 98116',
-  phone: '(206) 867-5305',
-};
-
-//Populate list of store locations
+firstAndPike.print();
