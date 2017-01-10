@@ -1,6 +1,6 @@
 'use strict';
 
-//global variables
+//global
 var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
 
 //store information stored as an object
@@ -23,7 +23,7 @@ var firstAndPike = {
     return this.location;
   },
 
-  print: function() {   //print to sales.html
+  print: function() {   //print the list of cookies sold per hour
     var businessList = document.getElementById('pike');
     this.cookiesPerHour();
     console.log(this.location);
@@ -32,15 +32,28 @@ var firstAndPike = {
       listEl.textContent = hours[i] + this.location[i];
       businessList.appendChild(listEl);
     }
+  },
+
+  amount: function() {    //print the total cookies sold for the day **NOT WORKING**
+    this.print();
+    var sum = 0;
+    for(var i = 0; i < this.location.length; i ++){
+      sum += this.location[i];
+      return sum;
+    }
+    var totalOne = document.getElementById('total-one');
+    var totalEl = document.createElement('p');
+    totalEl.textContent = 'Total: ' + sum;
+    totalOne.appendChild(totalEl);
   }
 };
-firstAndPike.print();
+firstAndPike.amount();
 
 //store information stored as an object
 var seatac = {
-  minHourlyCust: 23,
-  maxHourlyCust: 65,
-  avgCookies: 6.3,
+  minHourlyCust: 3,
+  maxHourlyCust: 24,
+  avgCookies: 1.2,
   location: [],
   customers: function() {   //average number of customers per hour
     var people = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
@@ -71,9 +84,9 @@ seatac.print();
 
 //store information stored as an object
 var seattleCenter = {
-  minHourlyCust: 23,
-  maxHourlyCust: 65,
-  avgCookies: 6.3,
+  minHourlyCust: 11,
+  maxHourlyCust: 38,
+  avgCookies: 3.7,
   location: [],
   customers: function() {   //average number of customers per hour
     var people = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
@@ -104,9 +117,9 @@ seattleCenter.print();
 
 //store information stored as an object
 var capitalHill = {
-  minHourlyCust: 23,
-  maxHourlyCust: 65,
-  avgCookies: 6.3,
+  minHourlyCust: 20,
+  maxHourlyCust: 38,
+  avgCookies: 2.3,
   location: [],
   customers: function() {   //average number of customers per hour
     var people = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
@@ -137,9 +150,9 @@ capitalHill.print();
 
 //store information stored as an object
 var alki = {
-  minHourlyCust: 23,
-  maxHourlyCust: 65,
-  avgCookies: 6.3,
+  minHourlyCust: 2,
+  maxHourlyCust: 16,
+  avgCookies: 4.6,
   location: [],
   customers: function() {   //average number of customers per hour
     var people = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
