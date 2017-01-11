@@ -1,7 +1,7 @@
 'use strict';
 
 //global variables
-var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total: '];
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
 
 //Store object
 function Store(minHourlyCust, maxHourlyCust, avgCookies){
@@ -33,13 +33,20 @@ Store.prototype.amount = function() {   //add all the total amount of cookies so
 };
 
 Store.prototype.print = function() {    //print the cookies sold as a table in html
-  var businessList = document.getElementById('table');
+  var tableEl = document.getElementById('table');
   this.cookiesPerHour();
   this.amount();
-  for(var i = 0; i < this.location[1].length; i ++) {
-    var listEl = document.createElement('li');
-    listEl.textContent = hours[i] + this.location[1][i];
-    businessList.appendChild(listEl);
+  for(var i = 0; i < this.location.length; i ++) {
+    var rowData = this.location[i];
+    var rowEl = document.createElement('tr');
+    for (var j = 0; j < rowData.length; j++) {
+      var content = rowData[j];
+      var dataEl = document.createElement('td');
+
+      dataEl.textContent = content;
+      rowEl.appendChild(dataEl);
+    }
+    tableEl.appendChild(rowEl);
   }
 };
 
