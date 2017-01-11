@@ -3,14 +3,13 @@
 //global
 var hours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: ', 'Total: '];
 
-//store object
-function Store(minHourlyCust, maxHourlyCust, avgCookies, location) {
+//Store object
+function Store(minHourlyCust, maxHourlyCust, avgCookies){
   this.minHourlyCust = minHourlyCust;
   this.maxHourlyCust = maxHourlyCust;
   this.avgCookies = avgCookies;
-  this.location = location;
+  this.location = [];
 };
-
 
 //methods to run when Store object is called
 Store.prototype.cookiesPerHour = function() {   //calculate the amount of cookies sold per hour
@@ -33,7 +32,7 @@ Store.prototype.amount = function() {   //add all the total amount of cookies so
   console.log(sum);
 };
 
-Store.prototype.print = function() {    //print the cookies sold as a list in html
+Store.prototype.print = function() {    //print the cookies sold as a table in html
   var businessList = document.getElementById('pike');
   this.cookiesPerHour();
   this.amount();
@@ -42,11 +41,16 @@ Store.prototype.print = function() {    //print the cookies sold as a list in ht
     var listEl = document.createElement('li');
     listEl.textContent = hours[i] + this.location[i];
     businessList.appendChild(listEl);
+  }
 };
 
-var firstAndPike = new Store(23, 65, 6.3, []);
+//created stores
+var firstAndPike = new Store(23, 65, 6.3);
 
+//call the stores to print
 firstAndPike.print();
+console.log(firstAndPike);
+
 // //store information stored as an object
 // var firstAndPike = {
 //   minHourlyCust: 23,
