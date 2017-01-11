@@ -45,27 +45,58 @@ Store.prototype.storePlaces = function() {   //print all of the store locations
     rowEl.appendChild(dataEl);
     tableEl.appendChild(rowEl);
   }
-  console.log(storePlaces());
+};
+
+Store.prototype.storeHours = function() {   //print all of the store locations
+  var tableEl = document.getElementById('table');
+
+  for (var i = 0; i < hours.length; i++) {
+    var rowData = hours[i];
+    var rowEl = document.createElement('tr');
+    var dataEl = document.createElement('th');
+
+    dataEl.textContent = rowData;
+    rowEl.appendChild(dataEl);
+    tableEl.appendChild(rowEl);
+  }
 };
 
 Store.prototype.print = function() {    //print the cookies sold as a table in html
   this.cookiesPerHour();
   this.amount();
   this.storePlaces();
+  // this.storeHours();
 
-  // for (var i = 0; i < this.location.length; i ++) {
-  //   var rowData = this.location[i];
-  //   var rowEl = document.createElement('tr');
-  //
-  //   for (var j = 0; j < rowData.length; j++) {
-  //     var content = rowData[j];
-  //     var dataEl = document.createElement('td');
-  //     dataEl.textContent = content;
-  //     rowEl.appendChild(dataEl);
-  //   }
-  //   tableEl.appendChild(rowEl);
-  // }
+//   var tableEl = document.getElementById('table');
+//
+//   for (var i = 0; i < this.location.length; i ++) {
+//     var rowData = this.location[i];
+//     var rowEl = document.createElement('tr');
+//
+//     for (var j = 0; j < rowData.length; j++) {
+//       var content = rowData[j];
+//       var dataEl = document.createElement('td');
+//       dataEl.textContent = content;
+//       rowEl.appendChild(dataEl);
+//     }
+//     tableEl.appendChild(rowEl);
+//   }
 };
+
+//functions
+var tableHeader = function() {
+  var tableEl = document.getElementById('table');
+
+  for (var i = 0; i < hours.length; i++) {
+    var rowData = hours[i];
+    var rowEl = document.createElement('tr');
+    var dataEl = document.createElement('th');
+
+    dataEl.textContent = rowData;
+    rowEl.appendChild(dataEl);
+    tableEl.appendChild(rowEl);
+  }
+}
 
 //created stores
 var firstAndPike = new Store(23, 65, 6.3);
