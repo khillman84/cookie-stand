@@ -2,6 +2,7 @@
 
 //global variables
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
+var places = ['First and Pike', 'Seatac', 'Seattle Center', 'Capital Hill', 'Alki'];
 
 //Store object
 function Store(minHourlyCust, maxHourlyCust, avgCookies){
@@ -32,214 +33,49 @@ Store.prototype.amount = function() {   //add all the total amount of cookies so
   console.log(this.location[1]);
 };
 
-Store.prototype.print = function() {    //print the cookies sold as a table in html
+Store.prototype.storePlaces = function() {   //print all of the store locations
   var tableEl = document.getElementById('table');
-  this.cookiesPerHour();
-  this.amount();
-  for(var i = 0; i < this.location.length; i ++) {
-    var rowData = this.location[i];
-    var rowEl = document.createElement('tr');
-    for (var j = 0; j < rowData.length; j++) {
-      var content = rowData[j];
-      var dataEl = document.createElement('td');
 
-      dataEl.textContent = content;
-      rowEl.appendChild(dataEl);
-    }
+  for (var i = 0; i < places.length; i++) {
+    var rowData = places[i];
+    var rowEl = document.createElement('tr');
+    var dataEl = document.createElement('td');
+
+    dataEl.textContent = rowData;
+    rowEl.appendChild(dataEl);
     tableEl.appendChild(rowEl);
   }
+  console.log(storePlaces());
+};
+
+Store.prototype.print = function() {    //print the cookies sold as a table in html
+  this.cookiesPerHour();
+  this.amount();
+  this.storePlaces();
+
+  // for (var i = 0; i < this.location.length; i ++) {
+  //   var rowData = this.location[i];
+  //   var rowEl = document.createElement('tr');
+  //
+  //   for (var j = 0; j < rowData.length; j++) {
+  //     var content = rowData[j];
+  //     var dataEl = document.createElement('td');
+  //     dataEl.textContent = content;
+  //     rowEl.appendChild(dataEl);
+  //   }
+  //   tableEl.appendChild(rowEl);
+  // }
 };
 
 //created stores
 var firstAndPike = new Store(23, 65, 6.3);
+var seatac = new Store(2, 23, 1.2);
+var seattleCenter = new Store(11, 38, 3.7);
+var capitalHill = new Store(20, 38, 2.3);
+var alki = new Store(2, 16, 4.6);
 
 //call the stores to print
 firstAndPike.print();
-console.log(firstAndPike);
-
-// //store information stored as an object
-// var firstAndPike = {
-//   minHourlyCust: 23,
-//   maxHourlyCust: 65,
-//   avgCookies: 6.3,
-//   location: [],
-//   cookiesPerHour: function() {    //amount of cookies sold per hour
-//     for(var i = 0; i < hours.length - 1; i ++){
-//       var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-//       console.log(people);
-//       var amount = Math.round(people * this.avgCookies);
-//       console.log(amount);
-//       this.location.push(amount);
-//     }
-//     return this.location;
-//   },
-//   amount: function() {    //print the total cookies sold for the day
-//     var sum = 0;
-//     for(var j = 0; j < this.location.length; j ++){
-//       sum += this.location[j];
-//     }
-//     this.location.push(sum);
-//     console.log(sum);
-//   },
-//   print: function() {   //print the list of cookies sold per hour
-//     var businessList = document.getElementById('pike');
-//     this.cookiesPerHour();
-//     this.amount();
-//     console.log(this.location);
-//     for(var i = 0; i < this.location.length; i ++) {
-//       var listEl = document.createElement('li');
-//       listEl.textContent = hours[i] + this.location[i];
-//       businessList.appendChild(listEl);
-//     }
-//   },
-// };
-//
-// var seatac = {
-//   minHourlyCust: 2,
-//   maxHourlyCust: 24,
-//   avgCookies: 1.2,
-//   location: [],
-//   cookiesPerHour: function() {    //amount of cookies sold per hour
-//     for(var i = 0; i < hours.length - 1; i ++){
-//       var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-//       console.log(people);
-//       var amount = Math.round(people * this.avgCookies);
-//       console.log(amount);
-//       this.location.push(amount);
-//     }
-//     return this.location;
-//   },
-//   amount: function() {    //print the total cookies sold for the day
-//     var sum = 0;
-//     for(var j = 0; j < this.location.length; j ++){
-//       sum += this.location[j];
-//     }
-//     this.location.push(sum);
-//     console.log(sum);
-//   },
-//   print: function() {   //print the list of cookies sold per hour
-//     var businessList = document.getElementById('seatac');
-//     this.cookiesPerHour();
-//     this.amount();
-//     console.log(this.location);
-//     for(var i = 0; i < this.location.length; i ++) {
-//       var listEl = document.createElement('li');
-//       listEl.textContent = hours[i] + this.location[i];
-//       businessList.appendChild(listEl);
-//     }
-//   },
-// };
-//
-// var seattleCenter = {
-//   minHourlyCust: 11,
-//   maxHourlyCust: 38,
-//   avgCookies: 3.7,
-//   location: [],
-//   cookiesPerHour: function() {    //amount of cookies sold per hour
-//     for(var i = 0; i < hours.length - 1; i ++){
-//       var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-//       console.log(people);
-//       var amount = Math.round(people * this.avgCookies);
-//       console.log(amount);
-//       this.location.push(amount);
-//     }
-//     return this.location;
-//   },
-//   amount: function() {    //print the total cookies sold for the day
-//     var sum = 0;
-//     for(var j = 0; j < this.location.length; j ++){
-//       sum += this.location[j];
-//     }
-//     this.location.push(sum);
-//     console.log(sum);
-//   },
-//   print: function() {   //print the list of cookies sold per hour
-//     var businessList = document.getElementById('seattleCenter');
-//     this.cookiesPerHour();
-//     this.amount();
-//     console.log(this.location);
-//     for(var i = 0; i < this.location.length; i ++) {
-//       var listEl = document.createElement('li');
-//       listEl.textContent = hours[i] + this.location[i];
-//       businessList.appendChild(listEl);
-//     }
-//   },
-// };
-//
-// var capitalHill = {
-//   minHourlyCust: 20,
-//   maxHourlyCust: 38,
-//   avgCookies: 2.3,
-//   location: [],
-//   cookiesPerHour: function() {    //amount of cookies sold per hour
-//     for(var i = 0; i < hours.length - 1; i ++){
-//       var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-//       console.log(people);
-//       var amount = Math.round(people * this.avgCookies);
-//       console.log(amount);
-//       this.location.push(amount);
-//     }
-//     return this.location;
-//   },
-//   amount: function() {    //print the total cookies sold for the day
-//     var sum = 0;
-//     for(var j = 0; j < this.location.length; j ++){
-//       sum += this.location[j];
-//     }
-//     this.location.push(sum);
-//     console.log(sum);
-//   },
-//   print: function() {   //print the list of cookies sold per hour
-//     var businessList = document.getElementById('capitalHill');
-//     this.cookiesPerHour();
-//     this.amount();
-//     console.log(this.location);
-//     for(var i = 0; i < this.location.length; i ++) {
-//       var listEl = document.createElement('li');
-//       listEl.textContent = hours[i] + this.location[i];
-//       businessList.appendChild(listEl);
-//     }
-//   },
-// };
-//
-// var alki = {
-//   minHourlyCust: 2,
-//   maxHourlyCust: 16,
-//   avgCookies: 4.6,
-//   location: [],
-//   cookiesPerHour: function() {    //amount of cookies sold per hour
-//     for(var i = 0; i < hours.length - 1; i ++){
-//       var people = Math.round(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-//       console.log(people);
-//       var amount = Math.round(people * this.avgCookies);
-//       console.log(amount);
-//       this.location.push(amount);
-//     }
-//     return this.location;
-//   },
-//   amount: function() {    //print the total cookies sold for the day
-//     var sum = 0;
-//     for(var j = 0; j < this.location.length; j ++){
-//       sum += this.location[j];
-//     }
-//     this.location.push(sum);
-//     console.log(sum);
-//   },
-//   print: function() {   //print the list of cookies sold per hour
-//     var businessList = document.getElementById('alki');
-//     this.cookiesPerHour();
-//     this.amount();
-//     console.log(this.location);
-//     for(var i = 0; i < this.location.length; i ++) {
-//       var listEl = document.createElement('li');
-//       listEl.textContent = hours[i] + this.location[i];
-//       businessList.appendChild(listEl);
-//     }
-//   },
-// };
-//
-// //call the store objects to print to html
-// firstAndPike.print();
 // seatac.print();
 // seattleCenter.print();
 // capitalHill.print();
