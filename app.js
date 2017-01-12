@@ -3,6 +3,20 @@
 //global variables
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
 
+var formEl = document.getElementById('store-info');
+
+formEl.addEventListener('submit',function(event){
+  event.preventDefault();
+  event.stopPropagation();
+
+  var location = event.target.location.value;
+  var minCustomer = event.target.minCust.value;
+  var maxCustomer = event.target.maxCust.value;
+  var avgSold = event.target.avgSold.value;
+  var newStore = new Store(minCustomer, maxCustomer, avgSold, location);
+
+  newStore.print();
+});
 //global functions
 function hourHeader() {
   var tableEl = document.getElementById('hours-row');
