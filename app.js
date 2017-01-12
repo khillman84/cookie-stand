@@ -18,7 +18,7 @@ function hourHeader() {
 function Store(minHourlyCust, maxHourlyCust, avgCookies, name){
   this.minHourlyCust = parseInt(minHourlyCust);
   this.maxHourlyCust = parseInt(maxHourlyCust);
-  this.avgCookies = parseInt(avgCookies);
+  this.avgCookies = avgCookies;
   this.location = [];
   this.name = name;
 };
@@ -82,7 +82,7 @@ formEl.addEventListener('submit',function(event){
   var newStore = new Store(minCustomer, maxCustomer, avgSold, location);
 
   newStore.print();
-});
+}, false);
 
 //created stores
 var firstAndPike = new Store(23, 65, 6.3, 'First and Pike');
