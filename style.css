@@ -45,11 +45,13 @@ h2 {
 .font {
   font-family: Times New Roman, Times, serif;
 }
-
+/*table on sales.html*/
 #table {
+  margin: auto;
+  width: 50%;
   border: 1px solid black;
 }
 
 td {
-  border: 5px solid black;
+  border: 1px solid black;
 }
