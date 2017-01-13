@@ -39,6 +39,12 @@ function footerHeader() { //print the total cookies sold each hour
   }
 };
 
+//In progress.  Looking to add an animation event to the index.html site
+// function fadeOut(element) {
+//   var mouseMove = document.getElementById('footer');
+//
+// }
+
 //Store object
 function Store(minHourlyCust, maxHourlyCust, avgCookies, name){
   this.minHourlyCust = parseInt(minHourlyCust);
@@ -64,10 +70,6 @@ Store.prototype.amount = function() {   //add the total amount of cookies sold
   }
   this.location.push(sum);
   // console.log(this.location);
-};
-
-Store.prototype.storeName = function() {    //push the store name into the this.location array
-  this.location.unshift(this.name);
 };
 
 Store.prototype.cookieTotals = function() {   //print the information into a table on the sales.html page
@@ -105,9 +107,13 @@ formEl.addEventListener('submit', function(event){
   var maxCustomer = event.target.maxCust.value;
   var avgSold = event.target.avgSold.value;
   var newStore = new Store(minCustomer, maxCustomer, avgSold, location);
+  stores.push(newStore);
 
   newStore.print();
 }, false);
+
+// Inprogress.  Working on adding an animation element to index.html
+// window.addEventListener('scroll', fadeOut, false);
 
 //created stores
 var firstAndPike = new Store(23, 65, 6.3, 'First and Pike');
