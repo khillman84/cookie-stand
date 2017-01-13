@@ -1,6 +1,7 @@
 /*Global Properties*/
 body {
-  background-color: rgb(247, 236, 236)
+  float: left;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 h2 {
@@ -8,12 +9,16 @@ h2 {
   text-align: center;
 }
 
+/*Logo*/
 #main-logo {
+  float:left;
+  width: 100%;
   margin: auto;
   width: 50%;
 }
 
 #main-box {
+  float:left;
   margin: auto;
   width: 90%;
 }
@@ -21,10 +26,12 @@ h2 {
 /*List of business info block*/
 #business-info {
   float: left;
-  height: 400px;
+  height: 25em;
   width: 20em;
+  margin-left: 2em;
   border-radius: 23px;
-  background-color: rgb(0, 134, 73);
+  background-color: rgba(3, 148, 13, 0.48);
+  box-shadow: 7px 7px 15px rgb(0, 0, 0);
   overflow: hidden;
 }
 
@@ -33,17 +40,31 @@ h2 {
 }
 /*About the company info block*/
 #about {
-  margin-left: 40%;
+  margin-left: 30em;
   height: 20em;
   width: 42em;
   padding: 1em;
   border-radius: 23px;
-  background-color: rgb(0, 134, 73);
+  background-color: rgba(3, 148, 13, 0.48);
+  box-shadow: 7px 7px 15px rgb(0, 0, 0);
   overflow: hidden;
 }
 
 .font {
   font-family: Times New Roman, Times, serif;
+}
+
+#white-space {
+  height: 300px;
+}
+
+footer {
+  float: left;
+  background-color: rgb(113, 215, 120);
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 /*table on sales.html*/
 #table {
