@@ -4,15 +4,22 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total'];
 var stores = [];
 var total = [];
+var tableElement;
+var rowData;
 
 //global functions
 function hourHeader() {  //print the hours of operation
-  var tableEl = document.getElementById('hours-row');
+  var tableEl = document.getElementById('table');
+  var newRow = document.createElement('tr');
+  var storeName = document.createElement('hd');
+  storeName.textContent = 'Stores';
+  newRow.appendChild(storeName);
   for (var i = 0; i < hours.length; i ++) {
     var rowData = document.createElement('td');
     rowData.textContent = hours[i];
-    tableEl.appendChild(rowData);
+    newRow.appendChild(rowData);
   }
+  tableEl.appendChild(newRow);
 };
 
 function getHourTotal() { //sum the amount of cookies sold each hour
@@ -28,16 +35,26 @@ function getHourTotal() { //sum the amount of cookies sold each hour
 };
 
 function footerHeader() { //print the total cookies sold each hour
-  var tableEl = document.getElementById('table');
+  tableElement = document.getElementById('table');
+  var newRow = document.createElement('tr');
   var blankHead = document.createElement('hd');
+  // tableElement.setAttribute('id', 'tableTotal');
   blankHead.textContent = 'Totals';
-  tableEl.appendChild(blankHead);
+  newRow.appendChild(blankHead);
   for (var i = 0; i < total.length; i ++) {
-    var rowData = document.createElement('td');
+    rowData = document.createElement('td');
     rowData.textContent = total[i];
-    tableEl.appendChild(rowData);
+    newRow.appendChild(rowData);
   }
+  tableElement.appendChild(newRow);
 };
+
+function removeRow() {
+  var oldTableEl = document.getElementById('table');
+  var oldRowEl = document.getElementById('tableTotal');
+  var remove = oldTableEl.removeChild(oldRowEl);
+  remove;
+}
 
 //In progress.  Looking to add an animation event to the index.html site
 // function fadeOut(element) {
@@ -74,7 +91,7 @@ Store.prototype.amount = function() {   //add the total amount of cookies sold
 
 Store.prototype.cookieTotals = function() {   //print the information into a table on the sales.html page
   var arr = this.location;
-  var tableEl = document.getElementById('table');
+  var tableEl2 = document.getElementById('table');
   var newRow = document.createElement('tr');
   var nameEl = document.createElement('th');
   nameEl.textContent = this.name;
@@ -86,7 +103,7 @@ Store.prototype.cookieTotals = function() {   //print the information into a tab
     // console.log('Inside cookie totals: ' + arr[i]);
   }
 
-  tableEl.appendChild(newRow);
+  tableEl2.appendChild(newRow);
 };
 
 Store.prototype.print = function() {    //call the methods in proper order
@@ -108,8 +125,11 @@ formEl.addEventListener('submit', function(event){
   var avgSold = event.target.avgSold.value;
   var newStore = new Store(minCustomer, maxCustomer, avgSold, location);
   stores.push(newStore);
+  removeRow();
 
   newStore.print();
+  getHourTotal();
+  console.log(stores);
 }, false);
 
 // Inprogress.  Working on adding an animation element to index.html

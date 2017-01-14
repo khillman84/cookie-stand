@@ -67,7 +67,7 @@ footer {
   bottom: 0;
 }
 /*table on sales.html*/
-#table {
+#tableTotal {
   margin: auto;
   width: 50%;
   border: 1px solid black;
