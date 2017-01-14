@@ -38,7 +38,7 @@ function footerHeader() { //print the total cookies sold each hour
   tableElement = document.getElementById('table');
   var newRow = document.createElement('tr');
   var blankHead = document.createElement('hd');
-  // tableElement.setAttribute('id', 'tableTotal');
+  newRow.setAttribute('id', 'tableTotal');
   blankHead.textContent = 'Totals';
   newRow.appendChild(blankHead);
   for (var i = 0; i < total.length; i ++) {
@@ -93,6 +93,7 @@ Store.prototype.cookieTotals = function() {   //print the information into a tab
   var arr = this.location;
   var tableEl2 = document.getElementById('table');
   var newRow = document.createElement('tr');
+  // newRow.setAttribute('id', 'rowInfo');
   var nameEl = document.createElement('th');
   nameEl.textContent = this.name;
   newRow.appendChild(nameEl);
@@ -129,6 +130,7 @@ formEl.addEventListener('submit', function(event){
 
   newStore.print();
   getHourTotal();
+  footerHeader();
   console.log(stores);
 }, false);
 
