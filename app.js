@@ -11,11 +11,12 @@ var rowData;
 function hourHeader() {  //print the hours of operation
   var tableEl = document.getElementById('table');
   var newRow = document.createElement('tr');
-  var storeName = document.createElement('hd');
+  var storeName = document.createElement('th');
   storeName.textContent = 'Stores';
+  newRow.setAttribute('id', 'tableFormat');
   newRow.appendChild(storeName);
   for (var i = 0; i < hours.length; i ++) {
-    var rowData = document.createElement('td');
+    var rowData = document.createElement('th');
     rowData.textContent = hours[i];
     newRow.appendChild(rowData);
   }
@@ -37,8 +38,9 @@ function getHourTotal() { //sum the amount of cookies sold each hour
 function footerHeader() { //print the total cookies sold each hour
   tableElement = document.getElementById('table');
   var newRow = document.createElement('tr');
-  var blankHead = document.createElement('hd');
+  var blankHead = document.createElement('th');
   newRow.setAttribute('id', 'tableTotal');
+  newRow.setAttribute('class', 'tableFormat');
   blankHead.textContent = 'Totals';
   newRow.appendChild(blankHead);
   for (var i = 0; i < total.length; i ++) {
@@ -93,7 +95,7 @@ Store.prototype.cookieTotals = function() {   //print the information into a tab
   var arr = this.location;
   var tableEl2 = document.getElementById('table');
   var newRow = document.createElement('tr');
-  // newRow.setAttribute('id', 'rowInfo');
+  newRow.setAttribute('id', 'rowInfo');
   var nameEl = document.createElement('th');
   nameEl.textContent = this.name;
   newRow.appendChild(nameEl);
