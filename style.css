@@ -39,6 +39,24 @@ h2 {
 #business-list {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.store-list {
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  width: 180px;
+  padding-left: 3%;
+  padding-bottom: 3%;
+}
+
+.store-hours {
+  margin-bottom: 4%;
+  border-bottom: 1px solid grey;
+}
+
 /*About the company info block*/
 #about {
   float: left;
@@ -65,6 +83,11 @@ h2 {
   font-family: Times New Roman, Times, serif;
 }
 
+.font-two {
+  font-size: 24px;
+  line-height: 150%;
+}
+
 #white-space {
   height: 300px;
 }
@@ -85,7 +108,8 @@ footer {
 }
 
 #white-space {
-  margin-top: 20px;
-  background-color: rgb(255, 160, 122);
   height: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
 }
