@@ -1,6 +1,7 @@
 /*Global Properties*/
 body {
-  background-color: rgb(247, 236, 236)
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
 }
 
 h2 {
@@ -8,50 +9,107 @@ h2 {
   text-align: center;
 }
 
+/*Logo*/
 #main-logo {
-  margin: auto;
-  width: 50%;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2%;
+}
+
+#bg-one {
+  background-image: url(pics/not-salmon.jpg);
+  height: 700px;
+  width: 100%;
 }
 
 #main-box {
   margin: auto;
-  width: 90%;
+  width: 100%;
 }
 
 /*List of business info block*/
 #business-info {
-  float: left;
-  height: 400px;
-  width: 20em;
-  border-radius: 23px;
-  background-color: rgb(0, 134, 73);
+  float: right;
+  height: 500px;
+  width: 31%;
+  background-color: rgb(112, 179, 117);
   overflow: hidden;
 }
 
 #business-list {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.store-list {
+  text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  width: 180px;
+  padding-left: 3%;
+  padding-bottom: 3%;
+}
+
+.store-hours {
+  margin-bottom: 4%;
+  border-bottom: 1px solid grey;
+}
+
 /*About the company info block*/
 #about {
-  margin-left: 40%;
-  height: 20em;
-  width: 42em;
+  float: left;
+  height: 668px;
+  width: 40em;
   padding: 1em;
-  border-radius: 23px;
-  background-color: rgb(0, 134, 73);
-  overflow: hidden;
+  background-color: rgb(112, 179, 117);
+}
+
+#bg-two {
+  height: 500px;
+  width: 100%;
+}
+
+#map {
+  float: left;
+  display: inline;
+  height: 500px;
+  width: 69%;
+  margin: 0;
 }
 
 .font {
   font-family: Times New Roman, Times, serif;
 }
+
+.font-two {
+  font-size: 24px;
+  line-height: 150%;
+}
+
+#white-space {
+  height: 300px;
+}
+
+footer {
+  float: left;
+  background-color: rgb(113, 215, 120);
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
 /*table on sales.html*/
-#table {
+#tableTotal {
   margin: auto;
   width: 50%;
   border: 1px solid black;
 }
 
-td {
-  border: 1px solid black;
+#white-space {
+  height: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
 }
