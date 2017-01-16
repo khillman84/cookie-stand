@@ -1,7 +1,7 @@
 /*Global Properties*/
 body {
-  float: left;
   background-color: rgba(255, 255, 255, 1);
+  width: 100%;
 }
 
 h2 {
@@ -11,27 +11,28 @@ h2 {
 
 /*Logo*/
 #main-logo {
-  float:left;
   width: 100%;
-  margin: auto;
-  width: 50%;
+  height: auto;
+  margin-bottom: 2%;
+}
+
+#bg-one {
+  background-image: url(pics/not-salmon.jpg);
+  height: 700px;
+  width: 100%;
 }
 
 #main-box {
-  float:left;
   margin: auto;
-  width: 90%;
+  width: 100%;
 }
 
 /*List of business info block*/
 #business-info {
-  float: left;
-  height: 25em;
-  width: 20em;
-  margin-left: 2em;
-  border-radius: 23px;
-  background-color: rgba(3, 148, 13, 0.48);
-  box-shadow: 7px 7px 15px rgb(0, 0, 0);
+  float: right;
+  height: 500px;
+  width: 31%;
+  background-color: rgb(112, 179, 117);
   overflow: hidden;
 }
 
@@ -40,14 +41,24 @@ h2 {
 }
 /*About the company info block*/
 #about {
-  margin-left: 30em;
-  height: 20em;
-  width: 42em;
+  float: left;
+  height: 668px;
+  width: 40em;
   padding: 1em;
-  border-radius: 23px;
-  background-color: rgba(3, 148, 13, 0.48);
-  box-shadow: 7px 7px 15px rgb(0, 0, 0);
-  overflow: hidden;
+  background-color: rgb(112, 179, 117);
+}
+
+#bg-two {
+  height: 500px;
+  width: 100%;
+}
+
+#map {
+  float: left;
+  display: inline;
+  height: 500px;
+  width: 69%;
+  margin: 0;
 }
 
 .font {
@@ -71,4 +82,10 @@ footer {
   margin: auto;
   width: 50%;
   border: 1px solid black;
+}
+
+#white-space {
+  margin-top: 20px;
+  background-color: rgb(255, 160, 122);
+  height: 100px;
 }
